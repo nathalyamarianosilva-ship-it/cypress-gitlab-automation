@@ -1,4 +1,4 @@
-# Cypress Intermediário - Testes Automatizados
+# Cypress GitLab Automation - Testes Automatizados
 
 Projeto de testes automatizados desenvolvido durante o curso **Testes Automatizados com Cypress (Intermediário)** da [Escola TAT](https://www.udemy.com/user/walmyr/).
 
@@ -105,6 +105,20 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 | Login | GUI | `login.cy.js` |
 | Logout | GUI | `logout.cy.js` |
 | Criação de projeto | GUI | `createProject.cy.js` |
+
+## Evidências de execução
+
+### Criação de projeto - All specs passed!
+![createProject](docs/createProject-passed.png)
+
+### Login - All specs passed!
+![login](docs/login-passed.png)
+
+### Logout - All specs passed!
+![logout](docs/logout-passed.png)
+
+### Todos os testes - All specs passed!
+![all-tests](docs/all-tests-passed.png)
 
 ## Boas práticas aplicadas
 
