@@ -105,6 +105,8 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 | Login | GUI | `login.cy.js` |
 | Logout | GUI | `logout.cy.js` |
 | Criação de projeto | GUI | `createProject.cy.js` |
+| Criação de issue | GUI | `createIssue.cy.js` |
+| Criação de projeto | API | `api/createProject.cy.js` |
 
 ## Evidências de execução
 
@@ -117,7 +119,13 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 ### Logout - All specs passed!
 ![logout](docs/logout-passed.png)
 
-### Todos os testes - All specs passed!
+### Criação de issue - All specs passed!
+![createIssue](docs/createIssue-passed.png)
+
+### Criação de projeto via API - All specs passed!
+![createProject-api](docs/createProject-api-passed.png)
+
+### Todos os testes (5 de 5) - All specs passed!
 ![all-tests](docs/all-tests-passed.png)
 
 ## Boas práticas aplicadas
