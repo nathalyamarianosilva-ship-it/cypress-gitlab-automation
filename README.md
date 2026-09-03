@@ -153,7 +153,7 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 
 ### Todos os testes (9 de 9) - All specs passed!
 
-https://github.com/nathalyamarianosilva-ship-it/cypress-intermediario/blob/main/docs/all-tests-passed.mp4
+[![Assista ao vídeo](https://www.loom.com/share/9b88228ceb7d471b8336beb83c5bfa80)](https://www.loom.com/share/9b88228ceb7d471b8336beb83c5bfa80)
 
 | Spec | Tests | Passing | Duration |
 |---|---|---|---|
