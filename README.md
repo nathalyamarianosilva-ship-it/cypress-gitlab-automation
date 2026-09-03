@@ -86,13 +86,23 @@ npx cypress open
 ```
 cypress/
 ├── e2e/
+│   ├── api/
+│   │   ├── createProject.cy.js  # Testa a criação de projeto via API
+│   │   └── createIssue.cy.js    # Testa a criação de issue via API
+│   ├── cli/
+│   │   └── gitClone.cy.js       # Testa o git clone via SSH
 │   └── gui/
-│       ├── login.cy.js          # Testa o login via GUI
-│       ├── logout.cy.js         # Testa o logout via GUI
-│       └── createProject.cy.js  # Testa a criação de projeto via GUI
+│       ├── login.cy.js              # Testa o login via GUI
+│       ├── logout.cy.js             # Testa o logout via GUI
+│       ├── createProject.cy.js      # Testa a criação de projeto via GUI
+│       ├── createIssue.cy.js        # Testa a criação de issue via GUI
+│       ├── setLabelOnIssue.cy.js    # Testa a adição de label em issue via GUI
+│       └── setMilestoneOnIssue.cy.js # Testa a adição de milestone em issue via GUI
 ├── support/
 │   ├── e2e.js                   # Arquivo de suporte principal
-│   └── gui_commands.js          # Comandos customizados do Cypress
+│   ├── api_commands.js          # Comandos customizados de API
+│   ├── cli_commands.js          # Comandos customizados de CLI
+│   └── gui_commands.js          # Comandos customizados de GUI
 └── downloads/                   # Pasta para downloads dos testes
 cypress.config.js                # Configurações do Cypress
 cypress.env.json.example         # Exemplo de variáveis de ambiente
@@ -107,6 +117,10 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 | Criação de projeto | GUI | `createProject.cy.js` |
 | Criação de issue | GUI | `createIssue.cy.js` |
 | Criação de projeto | API | `api/createProject.cy.js` |
+| Criação de issue | API | `api/createIssue.cy.js` |
+| Adição de label em issue | GUI + API | `gui/setLabelOnIssue.cy.js` |
+| Adição de milestone em issue | GUI + API | `gui/setMilestoneOnIssue.cy.js` |
+| Git clone via SSH | CLI | `cli/gitClone.cy.js` |
 
 ## Evidências de execução
 
@@ -125,8 +139,34 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 ### Criação de projeto via API - All specs passed!
 ![createProject-api](docs/createProject-api-passed.png)
 
-### Todos os testes (5 de 5) - All specs passed!
-![all-tests](docs/all-tests-passed.png)
+### Criação de issue via API - All specs passed!
+![createIssue-api](docs/createIssue-api-passed.png)
+
+### Adição de label em issue - All specs passed!
+![setLabelOnIssue](docs/setLabelOnIssue-passed.png)
+
+### Adição de milestone em issue - All specs passed!
+![setMilestoneOnIssue](docs/setMilestoneOnIssue-passed.png)
+
+### Git clone via SSH - All specs passed!
+![gitClone](docs/gitClone-passed.png)
+
+### Todos os testes (9 de 9) - All specs passed!
+
+https://github.com/nathalyamarianosilva-ship-it/cypress-intermediario/blob/main/docs/all-tests-passed.mp4
+
+| Spec | Tests | Passing | Duration |
+|---|---|---|---|
+| cli/gitClone.cy.js | 1 | 1 | 00:04 |
+| api/createIssue.cy.js | 1 | 1 | 00:03 |
+| api/createProject.cy.js | 1 | 1 | 00:02 |
+| gui/createIssue.cy.js | 1 | 1 | 00:10 |
+| gui/createProject.cy.js | 1 | 1 | 00:08 |
+| gui/login.cy.js | 1 | 1 | 00:02 |
+| gui/logout.cy.js | 1 | 1 | 00:02 |
+| gui/setLabelOnIssue.cy.js | 1 | 1 | 00:08 |
+| gui/setMilestoneOnIssue.cy.js | 1 | 1 | 00:05 |
+| **Total** | **9** | **9** | **00:47** |
 
 ## Boas práticas aplicadas
 
@@ -134,7 +174,9 @@ cypress.env.json.example         # Exemplo de variáveis de ambiente
 - **Validação de sessão** para garantir independência entre testes
 - **Dados dinâmicos** com `faker.js` para evitar conflitos
 - **Comandos customizados** para reuso de código
-- **Variáveis de ambiente** para proteger dados sensíveis
+- **Limpeza de dados** com `api_deleteProjects()` no `beforeEach` para garantir estado limpo
+- **Otimização de pré-condições** usando API para criar recursos que não são o foco do teste
+- **`cy.exec()`** para executar comandos a nível de sistema operacional (git clone via SSH)
 
 ---
 
